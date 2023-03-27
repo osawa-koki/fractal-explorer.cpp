@@ -9,6 +9,7 @@
 
 #include "drawer.mandelbrot.hpp"
 #include "drawer.julia.hpp"
+#include "drawer.tricorn.hpp"
 
 int main() {
 
@@ -24,6 +25,9 @@ int main() {
 
   julia_drawer(*config.julia);
   delete config.julia;
+
+  tricorn_drawer(*config.tricorn);
+  delete config.tricorn;
 
   return 0;
 }

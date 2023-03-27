@@ -6,6 +6,7 @@
 
 #include "config.mandelbrot.hpp"
 #include "config.julia.hpp"
+#include "config.tricorn.hpp"
 
 struct Config {
   int width;
@@ -13,6 +14,7 @@ struct Config {
   std::string output_directory;
   Mandelbrot* mandelbrot;
   Julia* julia;
+  Tricorn* tricorn;
 };
 
 #endif

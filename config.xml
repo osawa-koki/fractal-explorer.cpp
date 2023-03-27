@@ -30,4 +30,15 @@
     <output_file>julia.png</output_file>
   </julia>
 
+  <tricorn>
+    <x_min>-2.3</x_min>
+    <x_max>1.7</x_max>
+    <y_min>-2.0</y_min>
+    <y_max>2.0</y_max>
+    <threshold>300</threshold>
+    <max_iterations>700</max_iterations>
+    <color_hue>200</color_hue>
+    <output_file>tricorn.png</output_file>
+  </tricorn>
+
 </config>
