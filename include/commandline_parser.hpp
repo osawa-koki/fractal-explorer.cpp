@@ -32,7 +32,6 @@ Config* commandline_parser() {
   config->height = std::stoi(height_node.child_value());
   config->output_directory = output_directory_node.child_value();
 
-
   pugi::xml_node mandelbrot_node = config_node.child("mandelbrot");
   Mandelbrot* mandelbrot = new Mandelbrot();
   mandelbrot->x_min = std::stod(mandelbrot_node.child("x_min").child_value());
