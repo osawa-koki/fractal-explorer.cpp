@@ -62,6 +62,19 @@ void print_config(const Config& config) {
   cout << "max_iteration: " << config.burning_ship->max_iterations << endl;
   cout << "color_hue: " << config.burning_ship->color_hue << endl;
   cout << "output_file: " << config.burning_ship->output_file << endl;
+
+  cout << "===== ===== ===== Barnsley Fern ===== ===== =====" << endl;
+  cout << "width: " << config.barnsley_fern->width << endl;
+  cout << "height: " << config.barnsley_fern->height << endl;
+  cout << "size_x: " << config.barnsley_fern->size_x << endl;
+  cout << "size_y: " << config.barnsley_fern->size_y << endl;
+  cout << "start_x: " << config.barnsley_fern->start_x << endl;
+  cout << "start_y: " << config.barnsley_fern->start_y << endl;
+  cout << "zoom: " << config.barnsley_fern->zoom << endl;
+  cout << "max_iterations: " << config.barnsley_fern->max_iterations << endl;
+  cout << "color_hue: " << config.barnsley_fern->color_hue << endl;
+  cout << "background_color_hex: " << config.barnsley_fern->background_color_hex << endl;
+  cout << "output_file: " << config.barnsley_fern->output_file << endl;
 }
 
 #endif

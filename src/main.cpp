@@ -11,6 +11,7 @@
 #include "drawer.julia.hpp"
 #include "drawer.tricorn.hpp"
 #include "drawer.burning_ship.hpp"
+#include "drawer.barnsley_fern.hpp"
 
 int main() {
 
@@ -32,6 +33,9 @@ int main() {
 
   burning_ship_drawer(*config.burning_ship);
   delete config.burning_ship;
+
+  barnsley_fern_drawer(*config.barnsley_fern);
+  delete config.barnsley_fern;
 
   return 0;
 }

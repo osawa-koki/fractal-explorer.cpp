@@ -52,4 +52,16 @@
     <output_file>burning_ship.png</output_file>
   </burning_ship>
 
+  <barnsley_fern>
+    <size_x>10.0</size_x>
+    <size_y>95.0</size_y>
+    <start_x>48.0</start_x>
+    <start_y>0.0</start_y>
+    <zoom>90.0</zoom>
+    <max_iterations>300000</max_iterations>
+    <color_hue>240</color_hue>
+    <background_color_hex>ffffff</background_color_hex>
+    <output_file>barnsley_fern.png</output_file>
+  </barnsley_fern>
+
 </config>
