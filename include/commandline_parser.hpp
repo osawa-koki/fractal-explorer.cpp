@@ -3,6 +3,7 @@
 #include <string>
 
 #include "config.hpp"
+#include "join_path.hpp"
 
 Config* commandline_parser() {
   // XMLファイルを開く
@@ -46,7 +47,7 @@ Config* commandline_parser() {
   mandelbrot->threshold = std::stoi(mandelbrot_node.child("threshold").child_value());
   mandelbrot->max_iterations = std::stoi(mandelbrot_node.child("max_iterations").child_value());
   mandelbrot->color_hue = std::stoi(mandelbrot_node.child("color_hue").child_value());
-  mandelbrot->output_file = mandelbrot_node.child("output_file").child_value();
+  mandelbrot->output_file = join_path(config->output_directory, mandelbrot_node.child("output_file").child_value());
   config->mandelbrot = mandelbrot;
 
   pugi::xml_node julia_node = config_node.child("julia");
@@ -62,7 +63,7 @@ Config* commandline_parser() {
   julia->threshold = std::stoi(julia_node.child("threshold").child_value());
   julia->max_iterations = std::stoi(julia_node.child("max_iterations").child_value());
   julia->color_hue = std::stoi(julia_node.child("color_hue").child_value());
-  julia->output_file = julia_node.child("output_file").child_value();
+  julia->output_file = join_path(config->output_directory, julia_node.child("output_file").child_value());
   config->julia = julia;
 
   pugi::xml_node tricorn_node = config_node.child("tricorn");
@@ -76,7 +77,7 @@ Config* commandline_parser() {
   tricorn->threshold = std::stoi(tricorn_node.child("threshold").child_value());
   tricorn->max_iterations = std::stoi(tricorn_node.child("max_iterations").child_value());
   tricorn->color_hue = std::stoi(tricorn_node.child("color_hue").child_value());
-  tricorn->output_file = tricorn_node.child("output_file").child_value();
+  tricorn->output_file = join_path(config->output_directory, tricorn_node.child("output_file").child_value());
   config->tricorn = tricorn;
 
   return config;

@@ -1,10 +1,14 @@
 #!/bin/bash
 
+target_dir="./dist"
+target_file="$target_dir/items.txt"
+rm -f "$target_file"
+
 make clean
 make
 make run
 
-files=$(find ./dist -type f -name '*.png')
+files=$(find $target_dir -type f -name '*.png')
 for file in $files; do
-  echo "$file" >> ./dist/items.txt
+  echo "$file" >> "$target_file"
 done
