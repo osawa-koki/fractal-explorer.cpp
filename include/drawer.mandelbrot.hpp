@@ -8,6 +8,7 @@
 #include <fstream>
 
 #include "config.mandelbrot.hpp"
+#include "hsl_to_rgb.hpp"
 
 #define MAX_COLOR_VALUE 255
 
@@ -64,9 +65,10 @@ void mandelbrot_drawer(const Mandelbrot& config) {
 
       // マンデルブロ集合の計算結果を色に変換する
       int color = i * MAX_COLOR_VALUE / max_iterations;
-      px[0] = color;
-      px[1] = color;
-      px[2] = color;
+      std::array<int, 3> rgb = hsl_to_rgb(color, 100, 50);
+      px[0] = rgb[0];
+      px[1] = rgb[1];
+      px[2] = rgb[2];
       px[3] = MAX_COLOR_VALUE;
     }
   }

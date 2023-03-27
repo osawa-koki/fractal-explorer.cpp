@@ -11,8 +11,8 @@
     <x_max>0.8</x_max>
     <y_min>-1.5</y_min>
     <y_max>1.5</y_max>
-    <threshold>4</threshold>
-    <max_iterations>20</max_iterations>
+    <threshold>20</threshold>
+    <max_iterations>100</max_iterations>
     <color_hue>0</color_hue>
     <background_color_hex>000000</background_color_hex>
     <output_file>mandelbrot.png</output_file>

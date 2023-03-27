@@ -5,6 +5,7 @@
 #include "config.hpp"
 #include "commandline_parser.hpp"
 #include "print_config.hpp"
+#include "hsl_to_rgb.hpp"
 
 #include "drawer.mandelbrot.hpp"
 
