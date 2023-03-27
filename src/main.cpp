@@ -10,6 +10,7 @@
 #include "drawer.mandelbrot.hpp"
 #include "drawer.julia.hpp"
 #include "drawer.tricorn.hpp"
+#include "drawer.burning_ship.hpp"
 
 int main() {
 
@@ -28,6 +29,9 @@ int main() {
 
   tricorn_drawer(*config.tricorn);
   delete config.tricorn;
+
+  burning_ship_drawer(*config.burning_ship);
+  delete config.burning_ship;
 
   return 0;
 }

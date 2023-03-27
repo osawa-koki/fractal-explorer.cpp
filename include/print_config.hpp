@@ -50,6 +50,18 @@ void print_config(const Config& config) {
   cout << "max_iteration: " << config.tricorn->max_iterations << endl;
   cout << "color_hue: " << config.tricorn->color_hue << endl;
   cout << "output_file: " << config.tricorn->output_file << endl;
+
+  cout << "===== ===== ===== Burning Ship ===== ===== =====" << endl;
+  cout << "width: " << config.burning_ship->width << endl;
+  cout << "height: " << config.burning_ship->height << endl;
+  cout << "x_min: " << config.burning_ship->x_min << endl;
+  cout << "x_max: " << config.burning_ship->x_max << endl;
+  cout << "y_min: " << config.burning_ship->y_min << endl;
+  cout << "y_max: " << config.burning_ship->y_max << endl;
+  cout << "threshold: " << config.burning_ship->threshold << endl;
+  cout << "max_iteration: " << config.burning_ship->max_iterations << endl;
+  cout << "color_hue: " << config.burning_ship->color_hue << endl;
+  cout << "output_file: " << config.burning_ship->output_file << endl;
 }
 
 #endif
