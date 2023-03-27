@@ -28,12 +28,17 @@ Config* commandline_parser() {
   pugi::xml_node height_node = config_node.child("height");
   pugi::xml_node output_directory_node = config_node.child("output_directory");
 
-  config->width = std::stoi(width_node.child_value());
-  config->height = std::stoi(height_node.child_value());
+  int width = std::stoi(width_node.child_value());
+  int height = std::stoi(height_node.child_value());
+
+  config->width = width;
+  config->height = height;
   config->output_directory = output_directory_node.child_value();
 
   pugi::xml_node mandelbrot_node = config_node.child("mandelbrot");
   Mandelbrot* mandelbrot = new Mandelbrot();
+  mandelbrot->width = width;
+  mandelbrot->height = height;
   mandelbrot->x_min = std::stod(mandelbrot_node.child("x_min").child_value());
   mandelbrot->x_max = std::stod(mandelbrot_node.child("x_max").child_value());
   mandelbrot->y_min = std::stod(mandelbrot_node.child("y_min").child_value());

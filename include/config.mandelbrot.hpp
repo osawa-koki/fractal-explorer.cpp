@@ -5,6 +5,8 @@
 #include <string>
 
 struct Mandelbrot {
+  int width;
+  int height;
   double x_min;
   double x_max;
   double y_min;

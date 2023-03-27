@@ -12,6 +12,8 @@ void print_config(const Config& config) {
   std::cout << "output_directory: " << config.output_directory << std::endl;
 
   std::cout << "===== ===== ===== Mandelbrot ===== ===== =====" << std::endl;
+  std::cout << "width: " << config.mandelbrot->width << std::endl;
+  std::cout << "height: " << config.mandelbrot->height << std::endl;
   std::cout << "x_min: " << config.mandelbrot->x_min << std::endl;
   std::cout << "x_max: " << config.mandelbrot->x_max << std::endl;
   std::cout << "y_min: " << config.mandelbrot->y_min << std::endl;
