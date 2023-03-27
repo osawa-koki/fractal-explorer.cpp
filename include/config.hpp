@@ -10,7 +10,7 @@ struct Config {
   int width;
   int height;
   std::string output_directory;
-  Mandelbrot mandelbrot;
+  Mandelbrot* mandelbrot;
 };
 
 #endif

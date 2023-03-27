@@ -32,17 +32,18 @@ Config* commandline_parser() {
   config->height = std::stoi(height_node.child_value());
   config->output_directory = output_directory_node.child_value();
 
+
   pugi::xml_node mandelbrot_node = config_node.child("mandelbrot");
-  Mandelbrot mandelbrot;
-  mandelbrot.x_min = std::stod(mandelbrot_node.child("x_min").child_value());
-  mandelbrot.x_max = std::stod(mandelbrot_node.child("x_max").child_value());
-  mandelbrot.y_min = std::stod(mandelbrot_node.child("y_min").child_value());
-  mandelbrot.y_max = std::stod(mandelbrot_node.child("y_max").child_value());
-  mandelbrot.threshold = std::stoi(mandelbrot_node.child("threshold").child_value());
-  mandelbrot.max_iterations = std::stoi(mandelbrot_node.child("max_iterations").child_value());
-  mandelbrot.color_hue = std::stoi(mandelbrot_node.child("color_hue").child_value());
-  mandelbrot.background_color_hex = std::stoi(mandelbrot_node.child("background_color_hex").child_value(), nullptr, 16);
-  mandelbrot.output_file = mandelbrot_node.child("output_file").child_value();
+  Mandelbrot* mandelbrot = new Mandelbrot();
+  mandelbrot->x_min = std::stod(mandelbrot_node.child("x_min").child_value());
+  mandelbrot->x_max = std::stod(mandelbrot_node.child("x_max").child_value());
+  mandelbrot->y_min = std::stod(mandelbrot_node.child("y_min").child_value());
+  mandelbrot->y_max = std::stod(mandelbrot_node.child("y_max").child_value());
+  mandelbrot->threshold = std::stoi(mandelbrot_node.child("threshold").child_value());
+  mandelbrot->max_iterations = std::stoi(mandelbrot_node.child("max_iterations").child_value());
+  mandelbrot->color_hue = std::stoi(mandelbrot_node.child("color_hue").child_value());
+  mandelbrot->background_color_hex = std::stoi(mandelbrot_node.child("background_color_hex").child_value(), nullptr, 16);
+  mandelbrot->output_file = mandelbrot_node.child("output_file").child_value();
   config->mandelbrot = mandelbrot;
 
   return config;

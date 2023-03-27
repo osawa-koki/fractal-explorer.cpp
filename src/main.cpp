@@ -10,7 +10,9 @@ int main() {
 
   Config* config_ptr = commandline_parser();
   Config config = *config_ptr;
+  
   delete config_ptr;
+  delete config.mandelbrot;
 
   print_config(config);
 
