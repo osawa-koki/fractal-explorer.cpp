@@ -555,6 +555,7 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,c,c++,visualstudio,visualstudiocode
 
 *.png
+/**/dist/*
 !tako.png
 !fruit.png
 !.gitkeep
