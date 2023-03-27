@@ -556,6 +556,7 @@ FodyWeavers.xsd
 
 *.png
 /**/dist/*
-!tako.png
+!/**/dist/tako.png
+!/**/dist/index.html
 !fruit.png
 !.gitkeep
