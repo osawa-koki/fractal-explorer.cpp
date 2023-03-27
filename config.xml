@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="config.xsd">
+
+  <width>512</width>
+  <height>512</height>
+  <output_directory>./dist</output_directory>
+
+  <mandelbrot>
+    <x_min>-2.2</x_min>
+    <x_max>0.8</x_max>
+    <y_min>-1.5</y_min>
+    <y_max>1.5</y_max>
+    <threshold>4</threshold>
+    <max_iterations>20</max_iterations>
+    <color_hue>0</color_hue>
+    <background_color_hex>ff0000</background_color_hex>
+    <output_file>mandelbrot.png</output_file>
+  </mandelbrot>
+
+</config>
