@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 struct Mandelbrot {
   int width;
   int height;
@@ -14,7 +16,7 @@ struct Mandelbrot {
   int threshold;
   int max_iterations;
   int color_hue;
-  std::string output_file;
+  string output_file;
 };
 
 #endif

@@ -5,21 +5,23 @@
 #include "config.hpp"
 #include "join_path.hpp"
 
+using namespace std;
+
 Config* commandline_parser() {
   // XMLファイルを開く
   pugi::xml_document doc;
   pugi::xml_parse_result result = doc.load_file("config.xml");
 
   if (!result) {
-    std::cerr << "XMLファイルの読み込みに失敗しました。" << std::endl;
-    std::cerr << result.description() << std::endl;
+    cerr << "XMLファイルの読み込みに失敗しました。" << endl;
+    cerr << result.description() << endl;
     return nullptr;
   }
 
   // ルート要素を取得する
   pugi::xml_node config_node = doc.child("config");
   if (config_node.empty()) {
-    std::cerr << "ルート要素が見つかりませんでした。" << std::endl;
+    cerr << "ルート要素が見つかりませんでした。" << endl;
     return nullptr;
   }
 
@@ -29,8 +31,8 @@ Config* commandline_parser() {
   pugi::xml_node height_node = config_node.child("height");
   pugi::xml_node output_directory_node = config_node.child("output_directory");
 
-  int width = std::stoi(width_node.child_value());
-  int height = std::stoi(height_node.child_value());
+  int width = stoi(width_node.child_value());
+  int height = stoi(height_node.child_value());
 
   config->width = width;
   config->height = height;
@@ -40,13 +42,13 @@ Config* commandline_parser() {
   Mandelbrot* mandelbrot = new Mandelbrot();
   mandelbrot->width = width;
   mandelbrot->height = height;
-  mandelbrot->x_min = std::stod(mandelbrot_node.child("x_min").child_value());
-  mandelbrot->x_max = std::stod(mandelbrot_node.child("x_max").child_value());
-  mandelbrot->y_min = std::stod(mandelbrot_node.child("y_min").child_value());
-  mandelbrot->y_max = std::stod(mandelbrot_node.child("y_max").child_value());
-  mandelbrot->threshold = std::stoi(mandelbrot_node.child("threshold").child_value());
-  mandelbrot->max_iterations = std::stoi(mandelbrot_node.child("max_iterations").child_value());
-  mandelbrot->color_hue = std::stoi(mandelbrot_node.child("color_hue").child_value());
+  mandelbrot->x_min = stod(mandelbrot_node.child("x_min").child_value());
+  mandelbrot->x_max = stod(mandelbrot_node.child("x_max").child_value());
+  mandelbrot->y_min = stod(mandelbrot_node.child("y_min").child_value());
+  mandelbrot->y_max = stod(mandelbrot_node.child("y_max").child_value());
+  mandelbrot->threshold = stoi(mandelbrot_node.child("threshold").child_value());
+  mandelbrot->max_iterations = stoi(mandelbrot_node.child("max_iterations").child_value());
+  mandelbrot->color_hue = stoi(mandelbrot_node.child("color_hue").child_value());
   mandelbrot->output_file = join_path(config->output_directory, mandelbrot_node.child("output_file").child_value());
   config->mandelbrot = mandelbrot;
 
@@ -54,15 +56,15 @@ Config* commandline_parser() {
   Julia* julia = new Julia();
   julia->width = width;
   julia->height = height;
-  julia->x_min = std::stod(julia_node.child("x_min").child_value());
-  julia->x_max = std::stod(julia_node.child("x_max").child_value());
-  julia->y_min = std::stod(julia_node.child("y_min").child_value());
-  julia->y_max = std::stod(julia_node.child("y_max").child_value());
-  julia->cx = std::stod(julia_node.child("cx").child_value());
-  julia->cy = std::stod(julia_node.child("cy").child_value());
-  julia->threshold = std::stoi(julia_node.child("threshold").child_value());
-  julia->max_iterations = std::stoi(julia_node.child("max_iterations").child_value());
-  julia->color_hue = std::stoi(julia_node.child("color_hue").child_value());
+  julia->x_min = stod(julia_node.child("x_min").child_value());
+  julia->x_max = stod(julia_node.child("x_max").child_value());
+  julia->y_min = stod(julia_node.child("y_min").child_value());
+  julia->y_max = stod(julia_node.child("y_max").child_value());
+  julia->cx = stod(julia_node.child("cx").child_value());
+  julia->cy = stod(julia_node.child("cy").child_value());
+  julia->threshold = stoi(julia_node.child("threshold").child_value());
+  julia->max_iterations = stoi(julia_node.child("max_iterations").child_value());
+  julia->color_hue = stoi(julia_node.child("color_hue").child_value());
   julia->output_file = join_path(config->output_directory, julia_node.child("output_file").child_value());
   config->julia = julia;
 
@@ -70,13 +72,13 @@ Config* commandline_parser() {
   Tricorn* tricorn = new Tricorn();
   tricorn->width = width;
   tricorn->height = height;
-  tricorn->x_min = std::stod(tricorn_node.child("x_min").child_value());
-  tricorn->x_max = std::stod(tricorn_node.child("x_max").child_value());
-  tricorn->y_min = std::stod(tricorn_node.child("y_min").child_value());
-  tricorn->y_max = std::stod(tricorn_node.child("y_max").child_value());
-  tricorn->threshold = std::stoi(tricorn_node.child("threshold").child_value());
-  tricorn->max_iterations = std::stoi(tricorn_node.child("max_iterations").child_value());
-  tricorn->color_hue = std::stoi(tricorn_node.child("color_hue").child_value());
+  tricorn->x_min = stod(tricorn_node.child("x_min").child_value());
+  tricorn->x_max = stod(tricorn_node.child("x_max").child_value());
+  tricorn->y_min = stod(tricorn_node.child("y_min").child_value());
+  tricorn->y_max = stod(tricorn_node.child("y_max").child_value());
+  tricorn->threshold = stoi(tricorn_node.child("threshold").child_value());
+  tricorn->max_iterations = stoi(tricorn_node.child("max_iterations").child_value());
+  tricorn->color_hue = stoi(tricorn_node.child("color_hue").child_value());
   tricorn->output_file = join_path(config->output_directory, tricorn_node.child("output_file").child_value());
   config->tricorn = tricorn;
 

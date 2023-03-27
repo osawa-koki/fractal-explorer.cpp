@@ -7,10 +7,11 @@
 #include <iostream>
 #include <fstream>
 
+#include "const.hpp"
 #include "config.julia.hpp"
 #include "hsl_to_rgb.hpp"
 
-#define MAX_COLOR_VALUE 255
+using namespace std;
 
 void julia_drawer(const Julia& config) {
   // 画像の幅と高さを指定する
@@ -60,7 +61,7 @@ void julia_drawer(const Julia& config) {
 
       // ジュリア集合の計算結果を色に変換する
       int color = i * 360 / max_iterations;
-      std::array<int, 3> rgb = hsl_to_rgb((color + color_base) % 360, 100, 50);
+      array<int, 3> rgb = hsl_to_rgb((color + color_base) % 360, 100, 50);
       px[0] = rgb[0];
       px[1] = rgb[1];
       px[2] = rgb[2];
@@ -69,12 +70,12 @@ void julia_drawer(const Julia& config) {
   }
 
   // 画像をファイルに出力する
-  std::ofstream output_file(config.output_file, std::ios::binary);
+  ofstream output_file(config.output_file, ios::binary);
   png_structp png = png_create_write_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
   png_infop info = png_create_info_struct(png);
   png_set_write_fn(
       png, &output_file, [](png_structp png, png_bytep data, png_size_t length)
-      { ((std::ostream *)png_get_io_ptr(png))->write((char *)data, length); },
+      { ((ostream *)png_get_io_ptr(png))->write((char *)data, length); },
       nullptr);
   png_set_IHDR(
       png,
