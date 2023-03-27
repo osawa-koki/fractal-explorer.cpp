@@ -13,7 +13,6 @@
 #define MAX_COLOR_VALUE 255
 
 void mandelbrot_drawer(const Mandelbrot& config) {
-
   // 画像の幅と高さを指定する
   int width = config.width;
   int height = config.height;
