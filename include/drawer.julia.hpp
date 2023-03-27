@@ -25,6 +25,7 @@ void julia_drawer(const Julia& config) {
   double cx = config.cx;
   double cy = config.cy;
 
+  int color_base = config.color_hue;
   int max_iterations = config.max_iterations;
 
   // 画像のデータを格納する配列を確保する
@@ -58,8 +59,8 @@ void julia_drawer(const Julia& config) {
       }
 
       // ジュリア集合の計算結果を色に変換する
-      int color = i * MAX_COLOR_VALUE / max_iterations;
-      std::array<int, 3> rgb = hsl_to_rgb(color, 100, 50);
+      int color = i * 360 / max_iterations;
+      std::array<int, 3> rgb = hsl_to_rgb((color + color_base) % 360, 100, 50);
       px[0] = rgb[0];
       px[1] = rgb[1];
       px[2] = rgb[2];

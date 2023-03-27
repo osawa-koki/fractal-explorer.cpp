@@ -24,9 +24,9 @@
     <y_max>1.5</y_max>
     <cx>-0.4</cx>
     <cy>0.6</cy>
-    <threshold>25</threshold>
-    <max_iterations>80</max_iterations>
-    <color_hue>0</color_hue>
+    <threshold>70</threshold>
+    <max_iterations>250</max_iterations>
+    <color_hue>100</color_hue>
     <output_file>julia.png</output_file>
   </julia>
 

@@ -22,7 +22,7 @@ void mandelbrot_drawer(const Mandelbrot& config) {
   double y_min = config.y_min;
   double y_max = config.y_max;
 
-  int color = config.color_hue;
+  int color_base = config.color_hue;
 
   int max_iterations = config.max_iterations;
 
@@ -58,7 +58,7 @@ void mandelbrot_drawer(const Mandelbrot& config) {
 
       // マンデルブロ集合の計算結果を色に変換する
       int color = i * MAX_COLOR_VALUE / max_iterations;
-      std::array<int, 3> rgb = hsl_to_rgb(color, 100, 50);
+      std::array<int, 3> rgb = hsl_to_rgb((color + color_base) % 360, 100, 50);
       px[0] = rgb[0];
       px[1] = rgb[1];
       px[2] = rgb[2];
