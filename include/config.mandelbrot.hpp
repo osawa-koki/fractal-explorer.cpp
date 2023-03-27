@@ -14,7 +14,6 @@ struct Mandelbrot {
   int threshold;
   int max_iterations;
   int color_hue;
-  int background_color_hex;
   std::string output_file;
 };
 

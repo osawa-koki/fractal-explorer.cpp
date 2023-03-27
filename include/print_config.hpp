@@ -21,7 +21,6 @@ void print_config(const Config& config) {
   std::cout << "threshold: " << config.mandelbrot->threshold << std::endl;
   std::cout << "max_iteration: " << config.mandelbrot->max_iterations << std::endl;
   std::cout << "color_hue: " << config.mandelbrot->color_hue << std::endl;
-  std::cout << "background_color_hex: " << config.mandelbrot->background_color_hex << std::endl;
   std::cout << "output_file: " << config.mandelbrot->output_file << std::endl;
 }
 

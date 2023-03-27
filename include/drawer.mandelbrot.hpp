@@ -24,7 +24,6 @@ void mandelbrot_drawer(const Mandelbrot& config) {
   double y_max = config.y_max;
 
   int color = config.color_hue;
-  int background_color = config.background_color_hex;
 
   int max_iterations = config.max_iterations;
 
@@ -43,10 +42,6 @@ void mandelbrot_drawer(const Mandelbrot& config) {
     {
 
       png_bytep px = &(row[x * 4]);
-      px[0] = (background_color >> 16) & 0xff;
-      px[1] = (background_color >> 8) & 0xff;
-      px[2] = (background_color >> 0) & 0xff;
-      px[3] = MAX_COLOR_VALUE; // 透明度
 
       // マンデルブロ集合の計算を行う
       double x0 = x_min + (x_max - x_min) * x / width;

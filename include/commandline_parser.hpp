@@ -46,7 +46,6 @@ Config* commandline_parser() {
   mandelbrot->threshold = std::stoi(mandelbrot_node.child("threshold").child_value());
   mandelbrot->max_iterations = std::stoi(mandelbrot_node.child("max_iterations").child_value());
   mandelbrot->color_hue = std::stoi(mandelbrot_node.child("color_hue").child_value());
-  mandelbrot->background_color_hex = std::stoi(mandelbrot_node.child("background_color_hex").child_value(), nullptr, 16);
   mandelbrot->output_file = mandelbrot_node.child("output_file").child_value();
   config->mandelbrot = mandelbrot;
 
