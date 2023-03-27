@@ -36,7 +36,6 @@ void julia_drawer(const Julia& config) {
     row_pointers[y] = (png_byte *)malloc(sizeof(png_byte) * width * 4);
   }
 
-  // ジュリア集合を描写する
   for (int y = 0; y < height; y++)
   {
     png_bytep row = row_pointers[y];
@@ -44,7 +43,6 @@ void julia_drawer(const Julia& config) {
     {
       png_bytep px = &(row[x * 4]);
 
-      // ジュリア集合の計算を行う
       double x0 = x_min + (x_max - x_min) * x / width;
       double y0 = y_min + (y_max - y_min) * y / height;
       double x1 = x0;
@@ -59,7 +57,7 @@ void julia_drawer(const Julia& config) {
         i++;
       }
 
-      // ジュリア集合の計算結果を色に変換する
+      // 計算結果を色に変換する
       int color = i * 360 / max_iterations;
       array<int, 3> rgb = hsl_to_rgb((color + color_base) % 360, 100, 50);
       px[0] = rgb[0];
