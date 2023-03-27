@@ -35,6 +35,18 @@
       height: auto;
     }
   </style>
+  <script>
+    (() => {
+      const title_element = document.querySelector('title');
+      const title_content = title_element.textContent;
+      const loading_texts = ['⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'];
+      let current_loading_text = 0;
+      setInterval(() => {
+        title_element.textContent = `${loading_texts[current_loading_text]} ${title_content}`;
+        current_loading_text = (current_loading_text + 1) % loading_texts.length;
+      }, 300);
+    })();
+  </script>
 </head>
 <body>
   <h1>🍟 fractal-explorer.cpp 🍟</h1>
