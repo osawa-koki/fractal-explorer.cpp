@@ -1,7 +1,5 @@
 #!/bin/bash
 
-rm -rf ./dist/*
-
 make clean
 make
 make run
