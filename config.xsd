@@ -31,6 +31,25 @@
         </xsd:complexType>
       </xsd:element>
 
+      <xsd:element name="julia">
+        <xsd:complexType>
+          <xsd:sequence>
+
+            <xsd:element name="x_min" type="xsd:float" />
+            <xsd:element name="x_max" type="xsd:float" />
+            <xsd:element name="y_min" type="xsd:float" />
+            <xsd:element name="y_max" type="xsd:float" />
+            <xsd:element name="cx" type="xsd:float" />
+            <xsd:element name="cy" type="xsd:float" />
+            <xsd:element name="threshold" type="xsd:nonNegativeInteger" />
+            <xsd:element name="max_iterations" type="xsd:nonNegativeInteger" />
+            <xsd:element name="color_hue" type="xsd:nonNegativeInteger" />
+            <xsd:element name="output_file" type="xsd:string" />
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
     </xsd:sequence>
   </xsd:complexType>
 </xsd:element>

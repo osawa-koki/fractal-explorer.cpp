@@ -8,6 +8,7 @@
 #include "hsl_to_rgb.hpp"
 
 #include "drawer.mandelbrot.hpp"
+#include "drawer.julia.hpp"
 
 int main() {
 
@@ -20,6 +21,9 @@ int main() {
 
   mandelbrot_drawer(*config.mandelbrot);
   delete config.mandelbrot;
+
+  julia_drawer(*config.julia);
+  delete config.julia;
 
   return 0;
 }

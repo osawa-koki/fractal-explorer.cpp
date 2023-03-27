@@ -49,5 +49,21 @@ Config* commandline_parser() {
   mandelbrot->output_file = mandelbrot_node.child("output_file").child_value();
   config->mandelbrot = mandelbrot;
 
+  pugi::xml_node julia_node = config_node.child("julia");
+  Julia* julia = new Julia();
+  julia->width = width;
+  julia->height = height;
+  julia->x_min = std::stod(julia_node.child("x_min").child_value());
+  julia->x_max = std::stod(julia_node.child("x_max").child_value());
+  julia->y_min = std::stod(julia_node.child("y_min").child_value());
+  julia->y_max = std::stod(julia_node.child("y_max").child_value());
+  julia->cx = std::stod(julia_node.child("cx").child_value());
+  julia->cy = std::stod(julia_node.child("cy").child_value());
+  julia->threshold = std::stoi(julia_node.child("threshold").child_value());
+  julia->max_iterations = std::stoi(julia_node.child("max_iterations").child_value());
+  julia->color_hue = std::stoi(julia_node.child("color_hue").child_value());
+  julia->output_file = julia_node.child("output_file").child_value();
+  config->julia = julia;
+
   return config;
 }

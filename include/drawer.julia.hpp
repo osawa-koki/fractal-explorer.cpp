@@ -1,5 +1,5 @@
-#ifndef drawer_mandelbrot_hpp
-#define drawer_mandelbrot_hpp
+#ifndef drawer_julia_hpp
+#define drawer_julia_hpp
 
 #include <iostream>
 #include <string>
@@ -7,12 +7,12 @@
 #include <iostream>
 #include <fstream>
 
-#include "config.mandelbrot.hpp"
+#include "config.julia.hpp"
 #include "hsl_to_rgb.hpp"
 
 #define MAX_COLOR_VALUE 255
 
-void mandelbrot_drawer(const Mandelbrot& config) {
+void julia_drawer(const Julia& config) {
   // 画像の幅と高さを指定する
   int width = config.width;
   int height = config.height;
@@ -22,7 +22,8 @@ void mandelbrot_drawer(const Mandelbrot& config) {
   double y_min = config.y_min;
   double y_max = config.y_max;
 
-  int color = config.color_hue;
+  double cx = config.cx;
+  double cy = config.cy;
 
   int max_iterations = config.max_iterations;
 
@@ -33,7 +34,7 @@ void mandelbrot_drawer(const Mandelbrot& config) {
     row_pointers[y] = (png_byte *)malloc(sizeof(png_byte) * width * 4);
   }
 
-  // マンデルブロ集合を描写する
+  // ジュリア集合を描写する
   for (int y = 0; y < height; y++)
   {
     png_bytep row = row_pointers[y];
@@ -41,22 +42,22 @@ void mandelbrot_drawer(const Mandelbrot& config) {
     {
       png_bytep px = &(row[x * 4]);
 
-      // マンデルブロ集合の計算を行う
+      // ジュリア集合の計算を行う
       double x0 = x_min + (x_max - x_min) * x / width;
       double y0 = y_min + (y_max - y_min) * y / height;
-      double x1 = 0.0;
-      double y1 = 0.0;
+      double x1 = x0;
+      double y1 = y0;
       int i = 0;
       while (x1 * x1 + y1 * y1 <= 2 * 2 && i < max_iterations)
       {
-        double x2 = x1 * x1 - y1 * y1 + x0;
-        double y2 = 2 * x1 * y1 + y0;
+        double x2 = x1 * x1 - y1 * y1 + cx;
+        double y2 = 2 * x1 * y1 + cy;
         x1 = x2;
         y1 = y2;
         i++;
       }
 
-      // マンデルブロ集合の計算結果を色に変換する
+      // ジュリア集合の計算結果を色に変換する
       int color = i * MAX_COLOR_VALUE / max_iterations;
       std::array<int, 3> rgb = hsl_to_rgb(color, 100, 50);
       px[0] = rgb[0];
