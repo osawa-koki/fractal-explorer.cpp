@@ -9,6 +9,7 @@
 #include "config.tricorn.hpp"
 #include "config.burning_ship.hpp"
 #include "config.barnsley_fern.hpp"
+#include "config.pythagoras_tree.hpp"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ struct Config {
   Tricorn* tricorn;
   BurningShip* burning_ship;
   BarnsleyFern* barnsley_fern;
+  PythagorasTree* pythagoras_tree;
 };
 
 #endif

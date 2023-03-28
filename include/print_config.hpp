@@ -75,6 +75,19 @@ void print_config(const Config& config) {
   cout << "color_hue: " << config.barnsley_fern->color_hue << endl;
   cout << "background_color_hex: " << config.barnsley_fern->background_color_hex << endl;
   cout << "output_file: " << config.barnsley_fern->output_file << endl;
+
+  cout << "===== ===== ===== Pythagoras Tree ===== ===== =====" << endl;
+  cout << "width: " << config.pythagoras_tree->width << endl;
+  cout << "height: " << config.pythagoras_tree->height << endl;
+  cout << "color_from_hue: " << config.pythagoras_tree->color_from_hue << endl;
+  cout << "color_upto_hue: " << config.pythagoras_tree->color_upto_hue << endl;
+  cout << "background_color_hex: " << config.pythagoras_tree->background_color_hex << endl;
+  cout << "size: " << config.pythagoras_tree->size << endl;
+  cout << "degree: " << config.pythagoras_tree->degree << endl;
+  cout << "depth: " << config.pythagoras_tree->depth << endl;
+  cout << "left: " << config.pythagoras_tree->left << endl;
+  cout << "bottom: " << config.pythagoras_tree->bottom << endl;
+  cout << "output_file: " << config.pythagoras_tree->output_file << endl;
 }
 
 #endif

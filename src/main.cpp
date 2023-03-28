@@ -12,6 +12,7 @@
 #include "drawer.tricorn.hpp"
 #include "drawer.burning_ship.hpp"
 #include "drawer.barnsley_fern.hpp"
+#include "drawer.pythagoras_tree.hpp"
 
 int main() {
 
@@ -36,6 +37,9 @@ int main() {
 
   barnsley_fern_drawer(*config.barnsley_fern);
   delete config.barnsley_fern;
+
+  pythagoras_tree_drawer(*config.pythagoras_tree);
+  delete config.pythagoras_tree;
 
   return 0;
 }

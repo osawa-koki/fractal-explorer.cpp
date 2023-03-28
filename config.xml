@@ -64,4 +64,16 @@
     <output_file>barnsley_fern.png</output_file>
   </barnsley_fern>
 
+  <pythagoras_tree>
+    <color_from_hue>0</color_from_hue>
+    <color_upto_hue>100</color_upto_hue>
+    <background_color_hex>d4ffff</background_color_hex>
+    <size>15</size>
+    <degree>60</degree>
+    <depth>10</depth>
+    <left>35</left>
+    <bottom>20</bottom>
+    <output_file>pythagoras_tree.png</output_file>
+  </pythagoras_tree>
+
 </config>
