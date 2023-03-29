@@ -59,7 +59,7 @@
     <start_y>0.0</start_y>
     <zoom>90.0</zoom>
     <max_iterations>300000</max_iterations>
-    <color_hex>146329</color_hex>
+    <color_hex>00ff44</color_hex>
     <background_color_hex>ffffff</background_color_hex>
     <output_file>barnsley_fern.png</output_file>
   </barnsley_fern>
