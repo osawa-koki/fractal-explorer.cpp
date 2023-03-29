@@ -1,5 +1,5 @@
-#ifndef routine_draw_rectangle_hpp
-#define routine_draw_rectangle_hpp
+#ifndef routine_draw_polygon_hpp
+#define routine_draw_polygon_hpp
 
 #include <iostream>
 #include <string>
