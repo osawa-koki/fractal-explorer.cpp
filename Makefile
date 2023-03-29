@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-Wall -Wextra -Wpedantic -std=c++17 -O3 -I./include
+CFLAGS=-Wall -Wextra -Wpedantic -std=c++17 -O3 -I./include -I./src
 LDFLAGS=-lpng
 
 SRCDIR=./src
