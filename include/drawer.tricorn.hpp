@@ -58,15 +58,15 @@ void tricorn_drawer(const Tricorn& config) {
       }
 
       // 計算結果を色に変換する
-      int color = i * MAX_COLOR_VALUE / max_iterations;
+      int color = i * MAX_COLOR_VALUE / max_iterations + color_base;
       HSL* hsl = new HSL();
       hsl->h = color;
       hsl->s = 100;
       hsl->l = 50;
       RGB* rgb = hsl_to_rgb(hsl);
-      px[0] = (rgb->r >> 16) & 0xff;
-      px[1] = (rgb->g >> 8) & 0xff;
-      px[2] = (rgb->b >> 0) & 0xff;
+      px[0] = rgb->r;
+      px[1] = rgb->g;
+      px[2] = rgb->b;
       px[3] = MAX_COLOR_VALUE;
     }
   }
