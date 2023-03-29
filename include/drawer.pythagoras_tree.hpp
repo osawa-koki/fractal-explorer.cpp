@@ -59,7 +59,7 @@ void rec_draw(png_bytep *row_pointers, Coord p1, Coord p2, int size, int angle, 
   if (n == 0) return;
 
   HSL* hsl = new HSL();
-  hsl->h = current_color;
+  hsl->h = current_color % 360;
   hsl->s = 100;
   hsl->l = 50;
   RGB* rgb = hsl_to_rgb(hsl);
@@ -124,7 +124,7 @@ void pythagoras_tree_drawer(const PythagorasTree& config) {
 
   int color_from_hue = config.color_from_hue;
   int color_upto_hue = config.color_upto_hue;
-  int color_step = color_upto_hue - color_from_hue;
+  int color_step = (color_upto_hue - color_from_hue) / config.depth;
   int background_color = config.background_color_hex;
 
   int degree = config.degree;
@@ -158,8 +158,10 @@ void pythagoras_tree_drawer(const PythagorasTree& config) {
     }
   }
 
+  cout << "step: " << color_step << endl;
+
   HSL* hsl = new HSL();
-  hsl->h = color_from_hue;
+  hsl->h = color_from_hue % 360;
   hsl->s = 100;
   hsl->l = 50;
   RGB* rgb = hsl_to_rgb(hsl);
