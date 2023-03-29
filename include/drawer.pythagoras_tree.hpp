@@ -14,7 +14,7 @@
 #include "config.pythagoras_tree.hpp"
 #include "hsl_to_rgb.hpp"
 #include "interface.coord.hpp"
-#include "routine.draw_rectangle.hpp"
+#include "routine.draw_polygon.hpp"
 #include "interface.rgb.hpp"
 #include "interface.hsl.hpp"
 
@@ -70,13 +70,10 @@ void rec_draw(png_bytep *row_pointers, Coord p1, Coord p2, int size, int angle, 
   {
     double smalled_size = cos(degree * M_PI / 180) * size;
     vector<Coord> points = get_left_points(p1.x, p1.y, smalled_size, angle, degree);
-    draw_rectangle(
+    draw_polygon(
       row_pointers,
       color,
-      points[0],
-      points[1],
-      points[2],
-      points[3]);
+      points);
     rec_draw(
       row_pointers,
       points[3],
@@ -95,13 +92,10 @@ void rec_draw(png_bytep *row_pointers, Coord p1, Coord p2, int size, int angle, 
   {
     double smalled_size = sin(degree * M_PI / 180) * size;
     vector<Coord> points = get_right_points(p2.x, p2.y, smalled_size, angle, degree);
-    draw_rectangle(
+    draw_polygon(
       row_pointers,
       color,
-      points[0],
-      points[1],
-      points[2],
-      points[3]);
+      points);
     rec_draw(
       row_pointers,
       points[2],
@@ -168,13 +162,15 @@ void pythagoras_tree_drawer(const PythagorasTree& config) {
 
   int color = (rgb->r << 16) + (rgb->g << 8) + (rgb->b << 0);
 
-  draw_rectangle(
+  draw_polygon(
     row_pointers,
     color,
-    Coord{ left_size - box_size / 2, height - bottom_size - box_size },
-    Coord{ left_size + box_size / 2, height - bottom_size - box_size },
-    Coord{ left_size + box_size / 2, height - bottom_size },
-    Coord{ left_size - box_size / 2, height - bottom_size }
+    vector<Coord>{
+      Coord{ left_size - box_size / 2, height - bottom_size - box_size },
+      Coord{ left_size + box_size / 2, height - bottom_size - box_size },
+      Coord{ left_size + box_size / 2, height - bottom_size },
+      Coord{ left_size - box_size / 2, height - bottom_size }
+    }
   );
 
   rec_draw(

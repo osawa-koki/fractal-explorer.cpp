@@ -14,9 +14,8 @@
 #include "hsl_to_rgb.hpp"
 #include "interface.coord.hpp"
 
-void draw_rectangle(png_bytep *row_pointers, int color, Coord p1, Coord p2, Coord p3, Coord p4) {
-  std::vector<Coord> vertices = {p1, p2, p3, p4};
-  vertices.push_back(p1);  // 多角形が閉じていることを確認するために、最後に最初の座標を追加する。
+void draw_polygon(png_bytep *row_pointers, int color, std::vector<Coord> vertices) {
+  vertices.push_back(vertices[0]);  // 多角形が閉じていることを確認するために、最後に最初の座標を追加する。
 
   int min_x = std::min_element(vertices.begin(), vertices.end(), [](Coord a, Coord b) { return a.x < b.x; })->x;
   int min_y = std::min_element(vertices.begin(), vertices.end(), [](Coord a, Coord b) { return a.y < b.y; })->y;
