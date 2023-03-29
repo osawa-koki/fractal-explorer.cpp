@@ -152,8 +152,6 @@ void pythagoras_tree_drawer(const PythagorasTree& config) {
     }
   }
 
-  cout << "step: " << color_step << endl;
-
   HSL* hsl = new HSL();
   hsl->h = color_from_hue % 360;
   hsl->s = 100;
