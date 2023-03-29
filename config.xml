@@ -76,4 +76,15 @@
     <output_file>pythagoras_tree.png</output_file>
   </pythagoras_tree>
 
+  <recursive_tree>
+    <shrink>65</shrink>
+    <length>25</length>
+    <angle>20</angle>
+    <max_iterations>10</max_iterations>
+    <stroke_width>1</stroke_width>
+    <color_hex>ff0000</color_hex>
+    <background_color_hex>ffffff</background_color_hex>
+    <output_file>recursive_tree.png</output_file>
+  </recursive_tree>
+
 </config>

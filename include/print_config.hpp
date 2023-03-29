@@ -88,6 +88,18 @@ void print_config(const Config& config) {
   cout << "left: " << config.pythagoras_tree->left << endl;
   cout << "bottom: " << config.pythagoras_tree->bottom << endl;
   cout << "output_file: " << config.pythagoras_tree->output_file << endl;
+
+  cout << "===== ===== ===== Recursive Tree ===== ===== =====" << endl;
+  cout << "width: " << config.recursive_tree->width << endl;
+  cout << "height: " << config.recursive_tree->height << endl;
+  cout << "shrink: " << config.recursive_tree->shrink << endl;
+  cout << "length: " << config.recursive_tree->length << endl;
+  cout << "angle: " << config.recursive_tree->angle << endl;
+  cout << "max_iterations: " << config.recursive_tree->max_iterations << endl;
+  cout << "stroke_width: " << config.recursive_tree->stroke_width << endl;
+  cout << "color_hex: " << config.recursive_tree->color_hex << endl;
+  cout << "background_color_hex: " << config.recursive_tree->background_color_hex << endl;
+  cout << "output_file: " << config.recursive_tree->output_file << endl;
 }
 
 #endif

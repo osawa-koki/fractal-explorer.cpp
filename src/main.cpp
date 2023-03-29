@@ -13,6 +13,7 @@
 #include "drawer.burning_ship.hpp"
 #include "drawer.barnsley_fern.hpp"
 #include "drawer.pythagoras_tree.hpp"
+#include "drawer.recursive_tree.hpp"
 
 int main() {
 
@@ -21,7 +22,7 @@ int main() {
 
   delete config_ptr;
 
-  print_config(config);
+  // print_config(config);
 
   mandelbrot_drawer(*config.mandelbrot);
   delete config.mandelbrot;
@@ -40,6 +41,9 @@ int main() {
 
   pythagoras_tree_drawer(*config.pythagoras_tree);
   delete config.pythagoras_tree;
+
+  recursive_tree_drawer(*config.recursive_tree);
+  delete config.recursive_tree;
 
   return 0;
 }

@@ -10,6 +10,7 @@
 #include "config.burning_ship.hpp"
 #include "config.barnsley_fern.hpp"
 #include "config.pythagoras_tree.hpp"
+#include "config.recursive_tree.hpp"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ struct Config {
   BurningShip* burning_ship;
   BarnsleyFern* barnsley_fern;
   PythagorasTree* pythagoras_tree;
+  RecursiveTree* recursive_tree;
 };
 
 #endif
