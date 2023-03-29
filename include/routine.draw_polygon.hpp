@@ -10,7 +10,6 @@
 #include <algorithm>
 
 #include "const.hpp"
-#include "config.pythagoras_tree.hpp"
 #include "hsl_to_rgb.hpp"
 #include "interface.coord.hpp"
 
