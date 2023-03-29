@@ -14,7 +14,7 @@
 #include "config.recursive_tree.hpp"
 #include "hsl_to_rgb.hpp"
 #include "interface.coord.hpp"
-#include "routine.draw_polygon.hpp"
+#include "routine.draw_polyline.hpp"
 #include "interface.rgb.hpp"
 #include "interface.hsl.hpp"
 
@@ -91,7 +91,7 @@ void rec_draw(png_bytep *row_pointers, GlobalConfig* global_config, int x, int y
       {m.x + 3, m.y + 3}
     };
     cout << "N: " << n << ", x: " << x << ", y: " << y << ", m.x: " << m.x << ", m.y: " << m.y << endl;
-    draw_polygon(row_pointers, 0xff0000, vertices);
+    draw_polyline(row_pointers, 0xff0000, vertices);
     rec_draw(row_pointers, global_config, m.x, m.y, m.degree, n + 1);
   }
 }
@@ -145,7 +145,7 @@ void recursive_tree_drawer(const RecursiveTree& config) {
     {width / 2, height - (height * length / 100.0)},
     {width / 2 + 3, height - (height * length / 100.0) - 3}
   };
-  draw_polygon(row_pointers, 0xff0000, vertices);
+  draw_polyline(row_pointers, 0xff0000, vertices);
 
   rec_draw(row_pointers, global_config, width / 2, height - (height * length / 100.0), 90, 0);
   delete global_config;

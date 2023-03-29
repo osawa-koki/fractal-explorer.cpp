@@ -60,7 +60,7 @@
     <zoom>90.0</zoom>
     <max_iterations>300000</max_iterations>
     <color_hex>00ff44</color_hex>
-    <background_color_hex>ffffff</background_color_hex>
+    <background_color_hex>d4ffff</background_color_hex>
     <output_file>barnsley_fern.png</output_file>
   </barnsley_fern>
 
@@ -83,7 +83,7 @@
     <max_iterations>10</max_iterations>
     <stroke_width>1</stroke_width>
     <color_hex>ff0000</color_hex>
-    <background_color_hex>ffffff</background_color_hex>
+    <background_color_hex>d4ffff</background_color_hex>
     <output_file>recursive_tree.png</output_file>
   </recursive_tree>
 
