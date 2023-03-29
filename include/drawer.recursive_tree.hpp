@@ -35,6 +35,7 @@ struct GlobalConfig {
   int max_iterations;
   int color;
   int stroke_width;
+  int stroke_diff;
 };
 
 void rec_draw(png_bytep *row_pointers, GlobalConfig* global_config, int x, int y, int degree, int n) {
@@ -76,22 +77,13 @@ void rec_draw(png_bytep *row_pointers, GlobalConfig* global_config, int x, int y
   }
 
   for (auto m : moved) {
-    if (m.x < 0) m.x = 0;
-    if (m.y < 0) m.y = 0;
-    if (global_config->width <= m.x + 3) m.x = global_config->width - 1;
-    if (global_config->height <= m.y + 3) m.y = global_config->height - 1;
-    if (x < 0) x = 0;
-    if (y < 0) y = 0;
-    if (global_config->width <= x + 3) x = global_config->width - 1;
-    if (global_config->height <= y + 3) y = global_config->height - 1;
     vector<Coord> vertices {
-      {x, y},
-      {x + 3, y + 3},
-      {m.x, m.y},
-      {m.x + 3, m.y + 3}
+      {x - global_config->stroke_diff, y - global_config->stroke_diff},
+      {x + global_config->stroke_diff, y + global_config->stroke_diff},
+      {m.x - global_config->stroke_diff, m.y - global_config->stroke_diff},
+      {m.x + global_config->stroke_diff, m.y + global_config->stroke_diff}
     };
-    cout << "N: " << n << ", x: " << x << ", y: " << y << ", m.x: " << m.x << ", m.y: " << m.y << endl;
-    draw_polyline(row_pointers, 0xff0000, vertices);
+    draw_polyline(row_pointers, global_config->color, vertices);
     rec_draw(row_pointers, global_config, m.x, m.y, m.degree, n + 1);
   }
 }
@@ -118,6 +110,7 @@ void recursive_tree_drawer(const RecursiveTree& config) {
   global_config->max_iterations = max_iterations;
   global_config->color = color;
   global_config->stroke_width = stroke_width;
+  global_config->stroke_diff = stroke_width / 2;
 
   // 画像のデータを格納する配列を確保する
   png_bytep *row_pointers = (png_bytep *)malloc(sizeof(png_bytep) * height);
@@ -140,12 +133,12 @@ void recursive_tree_drawer(const RecursiveTree& config) {
   }
 
   vector<Coord> vertices {
-    {width / 2, height},
-    {width / 2 + 3, height - 3},
-    {width / 2, height - (height * length / 100.0)},
-    {width / 2 + 3, height - (height * length / 100.0) - 3}
+    {width / 2 - global_config->stroke_diff, height},
+    {width / 2 + global_config->stroke_diff, height},
+    {width / 2 - global_config->stroke_diff, height - (height * length / 100.0)},
+    {width / 2 + global_config->stroke_diff, height - (height * length / 100.0)}
   };
-  draw_polyline(row_pointers, 0xff0000, vertices);
+  draw_polyline(row_pointers, global_config->color, vertices);
 
   rec_draw(row_pointers, global_config, width / 2, height - (height * length / 100.0), 90, 0);
   delete global_config;
