@@ -72,7 +72,7 @@ void print_config(const Config& config) {
   cout << "start_y: " << config.barnsley_fern->start_y << endl;
   cout << "zoom: " << config.barnsley_fern->zoom << endl;
   cout << "max_iterations: " << config.barnsley_fern->max_iterations << endl;
-  cout << "color_hue: " << config.barnsley_fern->color_hue << endl;
+  cout << "color_hex: " << config.barnsley_fern->color_hex << endl;
   cout << "background_color_hex: " << config.barnsley_fern->background_color_hex << endl;
   cout << "output_file: " << config.barnsley_fern->output_file << endl;
 

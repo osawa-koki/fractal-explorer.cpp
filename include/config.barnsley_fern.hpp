@@ -15,7 +15,7 @@ struct BarnsleyFern {
   double start_y;
   double zoom;
   int max_iterations;
-  int color_hue;
+  int color_hex;
   int background_color_hex;
   string output_file;
 };

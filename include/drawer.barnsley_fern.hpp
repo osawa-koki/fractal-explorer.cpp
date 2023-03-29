@@ -26,7 +26,7 @@ void barnsley_fern_drawer(const BarnsleyFern& config) {
   double start_y = config.start_y;
   double zoom = config.zoom;
   int max_iterations = config.max_iterations;
-  int color_base = config.color_hue;
+  int color_base = config.color_hex;
   int background_color = config.background_color_hex;
 
   // 画像のデータを格納する配列を確保する
@@ -57,14 +57,9 @@ void barnsley_fern_drawer(const BarnsleyFern& config) {
     if (p_x >= 0 && p_x < width && p_y >= 0 && p_y < height) {
       png_bytep row = row_pointers[p_y];
       png_bytep px = &(row[p_x * 4]);
-      HSL* hsl = new HSL();
-      hsl->h = color_base;
-      hsl->s = 100;
-      hsl->l = 50;
-      RGB* rgb = hsl_to_rgb(hsl);
-      px[0] = rgb->r;
-      px[1] = rgb->g;
-      px[2] = rgb->b;
+      px[0] = (color_base >> 16) & 0xff;
+      px[1] = (color_base >> 8) & 0xff;
+      px[2] = (color_base >> 0) & 0xff;
       px[3] = MAX_COLOR_VALUE;
     }
 

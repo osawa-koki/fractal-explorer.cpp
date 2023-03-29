@@ -106,7 +106,7 @@ Config* commandline_parser() {
   barnsley_fern->start_y = stod(barnsley_fern_node.child("start_y").child_value());
   barnsley_fern->zoom = stod(barnsley_fern_node.child("zoom").child_value());
   barnsley_fern->max_iterations = stoi(barnsley_fern_node.child("max_iterations").child_value());
-  barnsley_fern->color_hue = stoi(barnsley_fern_node.child("color_hue").child_value());
+  barnsley_fern->color_hex = stoi(barnsley_fern_node.child("color_hex").child_value(), nullptr, 16);
   barnsley_fern->background_color_hex = stoi(barnsley_fern_node.child("background_color_hex").child_value(), nullptr, 16);
   barnsley_fern->output_file = join_path(config->output_directory, barnsley_fern_node.child("output_file").child_value());
   config->barnsley_fern = barnsley_fern;
