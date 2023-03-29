@@ -10,6 +10,8 @@
 #include "const.hpp"
 #include "config.barnsley_fern.hpp"
 #include "hsl_to_rgb.hpp"
+#include "interface.rgb.hpp"
+#include "interface.hsl.hpp"
 
 using namespace std;
 
@@ -55,10 +57,14 @@ void barnsley_fern_drawer(const BarnsleyFern& config) {
     if (p_x >= 0 && p_x < width && p_y >= 0 && p_y < height) {
       png_bytep row = row_pointers[p_y];
       png_bytep px = &(row[p_x * 4]);
-      std::array<int, 3UL> rgb = hsl_to_rgb(color_base, 100, 50);
-      px[0] = (rgb[0] >> 16) & 0xff;
-      px[1] = (rgb[1] >> 8) & 0xff;
-      px[2] = (rgb[2] >> 0) & 0xff;
+      HSL* hsl = new HSL();
+      hsl->h = color_base;
+      hsl->s = 100;
+      hsl->l = 50;
+      RGB* rgb = hsl_to_rgb(hsl);
+      px[0] = (rgb->r >> 16) & 0xff;
+      px[1] = (rgb->g >> 8) & 0xff;
+      px[2] = (rgb->b >> 0) & 0xff;
       px[3] = MAX_COLOR_VALUE;
     }
 

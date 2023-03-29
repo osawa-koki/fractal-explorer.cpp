@@ -10,6 +10,8 @@
 #include "const.hpp"
 #include "config.julia.hpp"
 #include "hsl_to_rgb.hpp"
+#include "interface.rgb.hpp"
+#include "interface.hsl.hpp"
 
 using namespace std;
 
@@ -59,10 +61,14 @@ void julia_drawer(const Julia& config) {
 
       // 計算結果を色に変換する
       int color = i * 360 / max_iterations;
-      array<int, 3> rgb = hsl_to_rgb((color + color_base) % 360, 100, 50);
-      px[0] = rgb[0];
-      px[1] = rgb[1];
-      px[2] = rgb[2];
+      HSL* hsl = new HSL();
+      hsl->h = color;
+      hsl->s = 100;
+      hsl->l = 50;
+      RGB* rgb = hsl_to_rgb(hsl);
+      px[0] = (rgb->r >> 16) & 0xff;
+      px[1] = (rgb->g >> 8) & 0xff;
+      px[2] = (rgb->b >> 0) & 0xff;
       px[3] = MAX_COLOR_VALUE;
     }
   }

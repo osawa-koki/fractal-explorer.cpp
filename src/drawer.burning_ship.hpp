@@ -10,6 +10,8 @@
 #include "const.hpp"
 #include "config.burning_ship.hpp"
 #include "hsl_to_rgb.hpp"
+#include "interface.rgb.hpp"
+#include "interface.hsl.hpp"
 
 using namespace std;
 
@@ -66,11 +68,15 @@ void burning_ship_drawer(const BurningShip& config) {
         px[3] = MAX_COLOR_VALUE;
       } else {
         int hue = (i * 360 / max_iterations + color_base) % 360;
-        array<int, 3> rgb = hsl_to_rgb(hue, 100, 50);
-        px[0] = rgb[0];
-        px[1] = rgb[1];
-        px[2] = rgb[2];
-        px[3] = MAX_COLOR_VALUE;
+      HSL* hsl = new HSL();
+      hsl->h = hue;
+      hsl->s = 100;
+      hsl->l = 50;
+      RGB* rgb = hsl_to_rgb(hsl);
+      px[0] = (rgb->r >> 16) & 0xff;
+      px[1] = (rgb->g >> 8) & 0xff;
+      px[2] = (rgb->b >> 0) & 0xff;
+      px[3] = MAX_COLOR_VALUE;
       }
     }
   }

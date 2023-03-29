@@ -15,6 +15,8 @@
 #include "hsl_to_rgb.hpp"
 #include "interface.coord.hpp"
 #include "routine.draw_rectangle.hpp"
+#include "interface.rgb.hpp"
+#include "interface.hsl.hpp"
 
 using namespace std;
 
@@ -56,8 +58,13 @@ vector<Coord> get_right_points(double x, double y, int size, int angle, int degr
 void rec_draw(png_bytep *row_pointers, Coord p1, Coord p2, int size, int angle, int degree, int n, int i, int current_color, int color_step) {
   if (n == 0) return;
 
-  array<int, 3> rgb = hsl_to_rgb(current_color % 360, 100, 50);
-  int color = (rgb[0] << 16) + (rgb[1] << 8) + rgb[2];
+  HSL* hsl = new HSL();
+  hsl->h = current_color;
+  hsl->s = 100;
+  hsl->l = 50;
+  RGB* rgb = hsl_to_rgb(hsl);
+
+  int color = (rgb->r << 16) + (rgb->g << 8) + (rgb->b << 0);
 
   // 左側
   {
@@ -151,8 +158,13 @@ void pythagoras_tree_drawer(const PythagorasTree& config) {
     }
   }
 
-  array<int, 3> rgb = hsl_to_rgb(color_from_hue % 360, 100, 50);
-  int color = (rgb[0] << 16) + (rgb[1] << 8) + rgb[2];
+  HSL* hsl = new HSL();
+  hsl->h = color_from_hue;
+  hsl->s = 100;
+  hsl->l = 50;
+  RGB* rgb = hsl_to_rgb(hsl);
+
+  int color = (rgb->r << 16) + (rgb->g << 8) + (rgb->b << 0);
 
   draw_rectangle(
     row_pointers,
