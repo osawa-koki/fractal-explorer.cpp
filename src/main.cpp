@@ -25,28 +25,28 @@ int main() {
 
   // print_config(config);
 
-  mandelbrot_drawer(*config.mandelbrot);
+  mandelbrot::drawer(*config.mandelbrot);
   delete config.mandelbrot;
 
-  julia_drawer(*config.julia);
+  julia::drawer(*config.julia);
   delete config.julia;
 
-  tricorn_drawer(*config.tricorn);
+  tricorn::drawer(*config.tricorn);
   delete config.tricorn;
 
-  burning_ship_drawer(*config.burning_ship);
+  burning_ship::drawer(*config.burning_ship);
   delete config.burning_ship;
 
-  barnsley_fern_drawer(*config.barnsley_fern);
+  barnsley_fern::drawer(*config.barnsley_fern);
   delete config.barnsley_fern;
 
   pythagoras_tree::drawer(*config.pythagoras_tree);
   delete config.pythagoras_tree;
 
-  recursive_tree_drawer(*config.recursive_tree);
+  recursive_tree::drawer(*config.recursive_tree);
   delete config.recursive_tree;
 
-  sierpinski_triangle_drawer(*config.sierpinski_triangle);
+  sierpinski_triangle::drawer(*config.sierpinski_triangle);
   delete config.sierpinski_triangle;
 
   return 0;
