@@ -12,6 +12,7 @@
 #include "config.pythagoras_tree.hpp"
 #include "config.recursive_tree.hpp"
 #include "config.sierpinski_triangle.hpp"
+#include "config.sierpinski_carpet.hpp"
 
 using namespace std;
 
@@ -27,6 +28,7 @@ struct Config {
   PythagorasTree* pythagoras_tree;
   RecursiveTree* recursive_tree;
   SierpinskiTriangle* sierpinski_triangle;
+  SierpinskiCarpet* sierpinski_carpet;
 };
 
 #endif

@@ -15,6 +15,7 @@
 #include "drawer.pythagoras_tree.hpp"
 #include "drawer.recursive_tree.hpp"
 #include "drawer.sierpinski_triangle.hpp"
+#include "drawer.sierpinski_carpet.hpp"
 
 int main() {
 
@@ -23,7 +24,7 @@ int main() {
 
   delete config_ptr;
 
-  // print_config(config);
+  print_config(config);
 
   mandelbrot::drawer(*config.mandelbrot);
   delete config.mandelbrot;
@@ -48,6 +49,9 @@ int main() {
 
   sierpinski_triangle::drawer(*config.sierpinski_triangle);
   delete config.sierpinski_triangle;
+
+  sierpinski_carpet::drawer(*config.sierpinski_carpet);
+  delete config.sierpinski_carpet;
 
   return 0;
 }

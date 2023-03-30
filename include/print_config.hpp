@@ -110,6 +110,16 @@ void print_config(const Config& config) {
   cout << "triangle_size: " << config.sierpinski_triangle->triangle_size << endl;
   cout << "max_iterations: " << config.sierpinski_triangle->max_iterations << endl;
   cout << "output_file: " << config.sierpinski_triangle->output_file << endl;
+
+  cout << "===== ===== ===== Sierpinski Carpet ===== ===== =====" << endl;
+  cout << "width: " << config.sierpinski_carpet->width << endl;
+  cout << "height: " << config.sierpinski_carpet->height << endl;
+  cout << "color_hex: " << config.sierpinski_carpet->color_hex << endl;
+  cout << "filling_color_hex: " << config.sierpinski_carpet->filling_color_hex << endl;
+  cout << "background_color_hex: " << config.sierpinski_carpet->background_color_hex << endl;
+  cout << "carpet_size: " << config.sierpinski_carpet->carpet_size << endl;
+  cout << "max_iterations: " << config.sierpinski_carpet->max_iterations << endl;
+  cout << "output_file: " << config.sierpinski_carpet->output_file << endl;
 }
 
 #endif

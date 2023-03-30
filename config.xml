@@ -96,4 +96,13 @@
     <output_file>sierpinski_triangle.png</output_file>
   </sierpinski_triangle>
 
+  <sierpinski_carpet>
+    <color_hex>8600b3</color_hex>
+    <filling_color_hex>d4ffff</filling_color_hex>
+    <background_color_hex>000000</background_color_hex>
+    <carpet_size>80</carpet_size>
+    <max_iterations>3</max_iterations>
+    <output_file>sierpinski_carpet.png</output_file>
+  </sierpinski_carpet>
+
 </config>
