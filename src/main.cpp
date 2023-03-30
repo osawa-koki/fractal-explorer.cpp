@@ -14,6 +14,7 @@
 #include "drawer.barnsley_fern.hpp"
 #include "drawer.pythagoras_tree.hpp"
 #include "drawer.recursive_tree.hpp"
+#include "drawer.sierpinski_triangle.hpp"
 
 int main() {
 
@@ -39,11 +40,14 @@ int main() {
   barnsley_fern_drawer(*config.barnsley_fern);
   delete config.barnsley_fern;
 
-  pythagoras_tree_drawer(*config.pythagoras_tree);
+  pythagoras_tree::drawer(*config.pythagoras_tree);
   delete config.pythagoras_tree;
 
   recursive_tree_drawer(*config.recursive_tree);
   delete config.recursive_tree;
+
+  sierpinski_triangle_drawer(*config.sierpinski_triangle);
+  delete config.sierpinski_triangle;
 
   return 0;
 }

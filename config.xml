@@ -87,4 +87,13 @@
     <output_file>recursive_tree.png</output_file>
   </recursive_tree>
 
+  <sierpinski_triangle>
+    <color_hex>ff0000</color_hex>
+    <filling_color_hex>d4ffff</filling_color_hex>
+    <background_color_hex>ffffb0</background_color_hex>
+    <triangle_size>80</triangle_size>
+    <max_iterations>3</max_iterations>
+    <output_file>sierpinski_triangle.png</output_file>
+  </sierpinski_triangle>
+
 </config>

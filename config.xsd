@@ -125,6 +125,19 @@
         </xsd:complexType>
       </xsd:element>
 
+      <xsd:element name="sierpinski_triangle">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="color_hex" type="HexColor" />
+            <xsd:element name="filling_color_hex" type="HexColor" />
+            <xsd:element name="background_color_hex" type="HexColor" />
+            <xsd:element name="triangle_size" type="xsd:nonNegativeInteger" />
+            <xsd:element name="max_iterations" type="xsd:nonNegativeInteger" />
+            <xsd:element name="output_file" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
     </xsd:sequence>
   </xsd:complexType>
 </xsd:element>
