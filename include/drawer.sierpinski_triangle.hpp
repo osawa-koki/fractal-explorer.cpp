@@ -22,6 +22,44 @@ using namespace std;
 
 namespace sierpinski_triangle {
 
+  struct GlobalStruct {
+    int color_hex;
+    int filling_color_hex;
+    int max_iterations;
+  };
+
+  void draw_sierpinski_triangle(png_bytep *row_pointers, GlobalStruct global_struct, int x, int y, int size) {
+    int p1_x = x + size / 2;
+    int p1_y = y - sin(-60 * M_PI / 180) * size;
+    int p2_x = x + size;
+    int p2_y = y;
+    std::vector<Coord> vertices = {
+      Coord{x, y},
+      Coord{p1_x, p1_y},
+      Coord{p2_x, p2_y}
+    };
+    draw_polygon(row_pointers, global_struct.filling_color_hex, vertices);
+  }
+
+  void rec_fx(png_bytep *row_pointers, GlobalStruct global_struct, int x, int y, int size, int n) {
+    if (global_struct.max_iterations < n) return;
+
+    int p1_x = cos(240 * M_PI / 180) * 1 / 4 * size + x;
+    int p1_y = y - sin(240 * M_PI / 180) * 1 / 4 * size;
+    int p2_x = cos(240 * M_PI / 180) * 3 / 4 * size + x;
+    int p2_y = y - sin(240 * M_PI / 180) * 3 / 4 * size;
+    int p3_x = p2_x + size / 2;
+    int p3_y = p2_y;
+
+    draw_sierpinski_triangle(row_pointers, global_struct, p1_x, p1_y, size / 4);
+    draw_sierpinski_triangle(row_pointers, global_struct, p2_x, p2_y, size / 4);
+    draw_sierpinski_triangle(row_pointers, global_struct, p3_x, p3_y, size / 4);
+
+    rec_fx(row_pointers, global_struct, x, y, size / 2, n + 1);
+    rec_fx(row_pointers, global_struct, cos(240 * M_PI / 180) * 1 / 2 * size + x, y - sin(240 * M_PI / 180) * 1 / 2 * size, size / 2, n + 1);
+    rec_fx(row_pointers, global_struct, cos(-60 * M_PI / 180) * 1 / 2 * size + x, y - sin(-60 * M_PI / 180) * 1 / 2 * size, size / 2, n + 1);
+  }
+
   void drawer(const SierpinskiTriangle& config) {
     // 画像の幅と高さを指定する
     int width = config.width;
@@ -33,6 +71,12 @@ namespace sierpinski_triangle {
 
     int triangle_size = config.triangle_size;
     int max_iterations = config.max_iterations;
+
+    GlobalStruct global_struct = {
+      color,
+      filling_color,
+      max_iterations
+    };
 
     // 画像のデータを格納する配列を確保する
     png_bytep *row_pointers = (png_bytep *)malloc(sizeof(png_bytep) * height);
@@ -81,6 +125,8 @@ namespace sierpinski_triangle {
       };
       draw_polygon(row_pointers, filling_color, vertices);
     }
+
+    rec_fx(row_pointers, global_struct, width / 2, start, size, 1);
 
     // 画像をファイルに出力する
     ofstream output_file(config.output_file, ios::binary);

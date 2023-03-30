@@ -106,6 +106,7 @@ void print_config(const Config& config) {
   cout << "height: " << config.sierpinski_triangle->height << endl;
   cout << "color_hex: " << config.sierpinski_triangle->color_hex << endl;
   cout << "filling_color_hex: " << config.sierpinski_triangle->filling_color_hex << endl;
+  cout << "background_color_hex: " << config.sierpinski_triangle->background_color_hex << endl;
   cout << "triangle_size: " << config.sierpinski_triangle->triangle_size << endl;
   cout << "max_iterations: " << config.sierpinski_triangle->max_iterations << endl;
   cout << "output_file: " << config.sierpinski_triangle->output_file << endl;
