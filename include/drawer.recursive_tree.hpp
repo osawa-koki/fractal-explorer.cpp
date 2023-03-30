@@ -20,7 +20,7 @@
 
 using namespace std;
 
-struct Tmp {
+struct NextPointStruct {
   int x;
   int y;
   int degree;
@@ -42,7 +42,7 @@ void rec_draw(png_bytep *row_pointers, GlobalConfig* global_config, int x, int y
   if (global_config->max_iterations < n) return;
 
   int len = (int)(pow(global_config->shrink / 100.0, n) * (global_config->width + global_config->height) / 2) * global_config->length / 100.0;
-  vector<Tmp> moved = {};
+  vector<NextPointStruct> moved = {};
 
   // 右側
   {
@@ -56,7 +56,7 @@ void rec_draw(png_bytep *row_pointers, GlobalConfig* global_config, int x, int y
     } else {
       moved_y = y + tan(ang * M_PI / 180.0) * (x - moved_x);
     }
-    Tmp tmp = {moved_x, moved_y, ang};
+    NextPointStruct tmp = {moved_x, moved_y, ang};
     moved.push_back(tmp);
   }
 
@@ -72,7 +72,7 @@ void rec_draw(png_bytep *row_pointers, GlobalConfig* global_config, int x, int y
     } else {
       moved_y = y + tan(ang * M_PI / 180.0) * (x - moved_x);
     }
-    Tmp tmp = {moved_x, moved_y, ang};
+    NextPointStruct tmp = {moved_x, moved_y, ang};
     moved.push_back(tmp);
   }
 
